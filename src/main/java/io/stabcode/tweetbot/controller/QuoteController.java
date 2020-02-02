@@ -15,11 +15,6 @@ public class QuoteController
   @Autowired
   private QuoteService service;
   
-  @RequestMapping("/init")
-  public void init()
-  {
-     service.init();
-  }
   @RequestMapping("/quotes")
   public List<Quote> getAllQuotes()
   {

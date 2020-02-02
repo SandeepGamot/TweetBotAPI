@@ -13,15 +13,9 @@ public class Quote
   private long id;
   private String quote;
   
-  public Quote()
+  protected Quote()
   {
   }
-  
-//  public Quote(long id, String quote)
-//  {
-//    this.id = id;
-//    this.quote = quote;
-//  }
   
   public Quote(String quote)
   {

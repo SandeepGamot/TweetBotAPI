@@ -36,9 +36,5 @@ import java.util.List;
   {
     quoteRepository.deleteById(id);
   }
-  public void init()
-  {
-    List<Quote> list = DataPopulator.getDataList();
-    list.forEach(this::addQuote);
-  }
+  
 }
