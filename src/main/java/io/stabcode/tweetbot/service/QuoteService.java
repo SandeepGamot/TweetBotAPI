@@ -2,7 +2,6 @@ package io.stabcode.tweetbot.service;
 
 import io.stabcode.tweetbot.model.Quote;
 import io.stabcode.tweetbot.repository.QuoteRepository;
-import io.stabcode.tweetbot.util.DataPopulator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,7 @@ import java.util.List;
   
   public Quote getQuoteById(Long id)
   {
-    return quoteRepository.findById(id).get();
+    return quoteRepository.findById(id).orElse(null);
   }
   
   public void addQuote(Quote quote)

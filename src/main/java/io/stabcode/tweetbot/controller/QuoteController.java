@@ -4,24 +4,32 @@ import io.stabcode.tweetbot.model.Quote;
 import io.stabcode.tweetbot.service.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class QuoteController
 {
   @Autowired
   private QuoteService service;
   
-  @RequestMapping("/quotes")
+  @GetMapping("/")
+  public String redirect()
+  {
+    return "redirect:/quotes";
+  }
+  @GetMapping("/quotes")
+  @ResponseBody
   public List<Quote> getAllQuotes()
   {
     return service.getAllQuotes();
   }
   
-  @RequestMapping("/quotes/{id}")
+  @GetMapping("/quotes/{id}")
+  @ResponseBody
   public Quote getQuoteById(@PathVariable Long id)
   {
      Quote q = service.getQuoteById(id);
@@ -30,13 +38,13 @@ public class QuoteController
      return q;
   }
   
-  @RequestMapping(method = RequestMethod.POST,value = "/quotes")
+  @PostMapping("/quotes")
   public void addQuote(@RequestBody Quote quote)
   {
     service.addQuote(quote);
   }
   
-  @RequestMapping(method = RequestMethod.DELETE,value = "/quotes/{id}")
+  @DeleteMapping("/quotes/{id}")
   public void deleteQuote( @PathVariable  Long id)
   {
     service.deleteQuote(id);
