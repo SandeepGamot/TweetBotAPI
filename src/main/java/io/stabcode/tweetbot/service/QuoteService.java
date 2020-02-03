@@ -2,6 +2,7 @@ package io.stabcode.tweetbot.service;
 
 import io.stabcode.tweetbot.model.Quote;
 import io.stabcode.tweetbot.repository.QuoteRepository;
+import io.stabcode.tweetbot.util.DataPopulator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +35,12 @@ import java.util.List;
   public void deleteQuote(Long id)
   {
     quoteRepository.deleteById(id);
+  }
+  
+  public void initDB()
+  {
+    List<Quote> list = DataPopulator.getDataList();
+    list.forEach(quoteRepository::save);
   }
   
 }
