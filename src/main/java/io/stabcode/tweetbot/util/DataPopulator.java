@@ -15,7 +15,7 @@ public class DataPopulator
     ArrayList<Quote> list = new ArrayList<>();
     
     try (Scanner sc = new Scanner(Paths.get(
-            "A:\\Projects\\TweetBot\\tweet-bot\\src\\main\\resources\\data\\data.txt"));)
+            "data/data.txt"));)
     {
       sc.useDelimiter("\\s*<br>");
       
