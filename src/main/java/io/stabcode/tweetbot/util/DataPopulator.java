@@ -1,9 +1,9 @@
 package io.stabcode.tweetbot.util;
 
 import io.stabcode.tweetbot.model.Quote;
+import org.springframework.util.ResourceUtils;
 
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,8 +14,7 @@ public class DataPopulator
   {
     ArrayList<Quote> list = new ArrayList<>();
     
-    try (Scanner sc = new Scanner(Paths.get(
-            "data/data.txt"));)
+    try (Scanner sc = new Scanner(ResourceUtils.getFile("classpath:data/data.txt")))
     {
       sc.useDelimiter("\\s*<br>");
       
