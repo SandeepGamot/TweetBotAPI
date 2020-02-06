@@ -15,7 +15,7 @@ public class DatabaseInit implements CommandLineRunner
   
   @Override public void run(String... args) throws Exception
   {
-    List<Quote> list = DataPopulator.getDataList();
+    List<Quote> list = new DataPopulator().getDataList();
     list.forEach(repository::save);
   }
 }
