@@ -19,7 +19,7 @@ public class QuoteController
   @GetMapping("/")
   public String redirect()
   {
-    service.initDB();
+//    service.initDB();
     return "redirect:/quotes";
   }
   @GetMapping("/quotes")
