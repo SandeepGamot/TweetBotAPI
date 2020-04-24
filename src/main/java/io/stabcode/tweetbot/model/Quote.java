@@ -1,9 +1,6 @@
 package io.stabcode.tweetbot.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Quote
@@ -11,6 +8,8 @@ public class Quote
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
+  @Lob
+  @Column(name="quote" , length=280)
   private String quote;
   
   protected Quote()

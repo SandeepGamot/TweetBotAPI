@@ -21,7 +21,7 @@ public class DataPopulator
       
       while (sc.hasNext())
       {
-        list.add(new Quote(sc.next().replaceAll("\r\n"," ".strip())));
+        list.add(new Quote(sc.next().replaceAll("\r\n"," ").strip()));
       }
       
     } catch (IOException e)
